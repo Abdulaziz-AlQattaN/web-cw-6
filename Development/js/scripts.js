@@ -57,22 +57,57 @@
 //   }
 // }
 
+// let product = prompt("السلعة: ");
+// let price = prompt("السعر");
+// let quantity = prompt("الكمية");
+
+// let products = [];
+// let prices = [];
+// let quantities = [];
+
+// while (product != "done") {
+//   products.push(product);
+//   prices.push(price);
+//   quantities.push(quantity);
+
+//   if (product != "done") {
+//     product = prompt("السلعة: ");
+//     price = prompt("السعر");
+//     quantity = prompt("الكمية");
+//   }
+// }
+
 let product = prompt("السلعة: ");
-let price = parseInt(prompt("السعر"));
-let quantity = parseInt(prompt("الكمية"));
+let price = parseFloat(prompt("السعر: "));
+let quantity = parseInt(prompt("الكمية: "));
 
 let products = [];
 let prices = [];
 let quantities = [];
 
-while (product != "done") {
+while (product !== "Done") {
   products.push(product);
   prices.push(price);
   quantities.push(quantity);
 
-  if (product != "انتهيت") {
-    product = prompt("السلعة: ");
-    price = parseInt(prompt("السعر"));
-    quantity = parseInt(prompt("الكمية"));
+  product = prompt("السلعة: ");
+
+  if (product !== "Done") {
+    price = parseFloat(prompt("السعر: "));
+    quantity = parseInt(prompt("الكمية: "));
   }
 }
+let totalPrice = 0;
+let i;
+for (i = 0; i < prices.length; i++) {
+  totalPrice = totalPrice + prices[i] * quantities[i];
+}
+
+console.log("-------الفاتورة-------");
+for (i = 0; i < prices.length; i++) {
+  console.log(
+    quantities[i] + " " + products[i] + " " + prices[i] * quantities[i] + "KD"
+  );
+}
+console.log("-------الفاتورة-------");
+console.log("السعر الكلي : " + totalPrice);
